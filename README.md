@@ -1,5 +1,6 @@
-- Create-react-app
-- Configured Tailwind CSS
+# Netflix GPT
+  - Create-react-app
+  - Configured Tailwind CSS
 
 # Features
 -Login/Sign-Up

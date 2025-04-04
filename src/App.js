@@ -1,10 +1,12 @@
+/** @format */
 
-import './App.css';
+import Header from './components/Header';
+import MoviesWidget from './components/MoviesWidget';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='text-3xl font-bold underline'>Hello Everyone</h1>
+    <div className='bg-custom-black p-4'>
+      <Header />
     </div>
   );
 }
