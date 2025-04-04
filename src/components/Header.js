@@ -2,6 +2,7 @@
 
 import React from 'react';
 import netflixLogo from '../media/Netflix_Logo_PMS.png';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -16,9 +17,11 @@ const Header = () => {
           {' '}
           Languages
         </button>
-        <button className='bg-white text-black rounded-md  px-5 py-2.5 hover:bg-white/80'>
-          Sign In
-        </button>
+        <Link to='/login'>
+          <button className='bg-white text-black rounded-md  px-5 py-2.5 hover:bg-white/80'>
+            Sign In
+          </button>
+        </Link>
       </div>
     </div>
   );

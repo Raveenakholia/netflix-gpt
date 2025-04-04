@@ -1,7 +1,6 @@
 /** @format */
 
 import Header from './components/Header';
-import MoviesWidget from './components/MoviesWidget';
 
 function App() {
   return (
