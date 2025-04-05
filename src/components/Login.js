@@ -14,7 +14,7 @@ const Login = () => {
           className='p-4 my-4 w-full rounded-md bg-gray-700'
         />
         <input
-          type='text'
+          type='password'
           placeholder='Password'
           className='p-4 my-4 w-full rounded-md bg-gray-700'
         />
