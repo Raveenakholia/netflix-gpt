@@ -4,6 +4,9 @@
 
 - Create-react-app
 - Configured Tailwind CSS
+- Routing
+- Sign In Form
+- Form Validation
 
 # Features
 

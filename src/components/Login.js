@@ -1,10 +1,24 @@
 /** @format */
 
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import netflixLogo from '../media/Netflix_Logo_PMS.png';
+import checkValidation from '../utils/Validate';
 
 const Login = () => {
+  const [errorMessage, setErrorMessage] = useState(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  const handleValidation = () => {
+    const messege = checkValidation(
+      emailRef.current.value,
+      passwordRef.current.value
+    );
+    setErrorMessage(messege);
+    console.log(messege);
+  };
+
   return (
     <div>
       <div className='absolute  z-10 mx-6 my-5'>
@@ -20,19 +34,26 @@ const Login = () => {
           alt='Netflix Backround'
         />
       </div>
-      <form className=' absolute bg-black w-3/12 p-12 my-36 left-0 right-0 mx-auto bg-opacity-80 text-white '>
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className=' absolute bg-black w-3/12 p-12 mt-14 left-0 right-0 mx-auto bg-opacity-80 text-white '>
         <h1 className='font-bold text-start pb-3 text-3xl'>Sign In</h1>
         <input
+          ref={emailRef}
           type='text'
           placeholder='Email or Phone Number'
           className='p-4 my-4 w-full rounded-md bg-gray-700'
         />
         <input
+          ref={passwordRef}
           type='password'
           placeholder='Password'
           className='p-4 my-4 w-full rounded-md bg-gray-700'
         />
-        <button className='bg-red-500 p-4 my-4 w-full  rounded-md'>
+        <p className='text-red-700'>{errorMessage}</p>
+        <button
+          className='bg-red-500 p-4 my-4 w-full  rounded-md'
+          onClick={handleValidation}>
           {' '}
           Sign In
         </button>
