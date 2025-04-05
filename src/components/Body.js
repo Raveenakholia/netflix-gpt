@@ -16,11 +16,7 @@ const Body = () => {
       element: <Login />,
     },
   ]);
-  return (
-    <div className='bg-custom-black p-4'>
-      <RouterProvider router={appRouter} />
-    </div>
-  );
+  return <RouterProvider router={appRouter} />;
 };
 
 export default Body;
