@@ -7,9 +7,6 @@
 - Routing
 - Sign In Form
 - Form Validation
-- useRef Hooks
-- Firebase setup
-- Deploying our project into production
 
 # Features
 

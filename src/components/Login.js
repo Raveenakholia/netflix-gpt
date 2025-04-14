@@ -4,15 +4,9 @@ import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import netflixLogo from '../media/Netflix_Logo_PMS.png';
 import checkValidation from '../utils/Validate';
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
-import { auth } from '../utils/Firebase';
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState(null);
-  const [isSignInForm, setIsSignInForm] = useState(true);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
@@ -22,49 +16,7 @@ const Login = () => {
       passwordRef.current.value
     );
     setErrorMessage(messege);
-    console.log(errorMessage);
-    console.log('Auth object', auth);
-    if (errorMessage != null) return;
-    if (errorMessage === null) {
-      //If there is no error message, that means email and password data are valid and now
-      // we can make sign up and sign in call
-
-      // check if user want to signupp or sign in the form
-      if (!isSignInForm) {
-        // create a new user with the email and password on firebase
-        console.log('Create a new user call');
-        createUserWithEmailAndPassword(
-          auth,
-          emailRef.current.value,
-          passwordRef.current.value
-        )
-          .then((usecredential) => {
-            const user = usecredential.user;
-            console.log(user);
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            setErrorMessage(errorCode + ' ' + errorMessage);
-          });
-      } else {
-        signInWithEmailAndPassword(
-          auth,
-          emailRef.current.value,
-          passwordRef.current.value
-        )
-          .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
-            // ...
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            setErrorMessage(errorCode + ' ' + errorMessage);
-          });
-      }
-    }
+    console.log(messege);
   };
 
   return (

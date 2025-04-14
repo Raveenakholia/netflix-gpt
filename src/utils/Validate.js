@@ -5,7 +5,7 @@ const checkValidation = (email, password) => {
     email
   );
   const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(
-    password // valid data- Password1
+    password
   );
 
   if (!emailRegex) return 'Please enter a valid email address';
