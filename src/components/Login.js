@@ -4,6 +4,8 @@ import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import netflixLogo from '../media/Netflix_Logo_PMS.png';
 import checkValidation from '../utils/Validate';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../utils/Firebase';
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -17,6 +19,23 @@ const Login = () => {
     );
     setErrorMessage(messege);
     console.log(messege);
+    signInWithEmailAndPassword(
+      auth,
+      emailRef.current.value,
+      passwordRef.current.value
+    )
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log('User signed in:', user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error('Error signing in:', errorCode, errorMessage);
+        setErrorMessage(errorCode + ' ' + errorMessage);
+      });
   };
 
   return (
