@@ -7,6 +7,7 @@
 - Routing
 - Sign In Form
 - Form Validation
+- Firebase initialization
 
 # Features
 
