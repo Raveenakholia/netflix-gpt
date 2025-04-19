@@ -6,11 +6,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Body from './components/Body';
+import { Provider } from 'react-redux';
+import store from './Store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Body />
+    <Provider store={store}>
+      <Body />
+    </Provider>
   </React.StrictMode>
 );
 
